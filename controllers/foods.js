@@ -19,7 +19,6 @@ router.get("/", async (req, res) => {
 router.post("/", async (req, res) => {
   try {
     const currentUser = await User.findById(req.session.user._id);
-    console.log(currentUser);
     currentUser.pantry.push(req.body);
     await currentUser.save();
     res.redirect(`/users/${currentUser._id}/foods`);

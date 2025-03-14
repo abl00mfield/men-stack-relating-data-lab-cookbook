@@ -10,12 +10,16 @@
 <body>
   <%- include("../partials/_navbar.ejs") %>
   <h1>Welcome to my Pantry</h1>
+  <% if (pantry.length != 0) { %>
   <ul>
     <% pantry.forEach((food)=> { %>
     <li><%= food.name %>, quantity: <%= food.quantity%> <%= food.unit %></li>
 
     <%}) %>
   </ul>
+  <% } else { %>
+  <p>There are no items in the Pantry</p>
+  <% } %>
 
   <a href="/users/<%= user._id %>/foods/new">Add a new food to your pantry</a>
 
