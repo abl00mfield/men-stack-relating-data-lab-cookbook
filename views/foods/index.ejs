@@ -13,7 +13,9 @@
   <% if (pantry.length != 0) { %>
   <ul>
     <% pantry.forEach((food)=> { %>
-    <li><%= food.name %>, quantity: <%= food.quantity%> <%= food.unit %></li>
+    <a href="/users/<%= user._id %>/foods/<%= food._id %>">
+      <li><%= food.name %>, quantity: <%= food.quantity%> <%= food.unit %></li>
+    </a>
 
     <%}) %>
   </ul>
