@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/style.css">
   <title><%= user.username %>></title>
 </head>
 
@@ -11,9 +12,9 @@
   <%- include("../partials/_navbar.ejs"); %>
   <h1><%= user.username %></h1>
   <p>Pantry Items</p>
-  <ul>
+  <ul class="list">
     <% pantry.forEach((food) => { %>
-    <li><%= food.name %> <%= food.quantity %> <%= food.unit %></li>
+    <li class="list-item"><%= food.name %> <%= food.quantity %> <%= food.unit %></li>
     <% }) %>
   </ul>
 </body>

@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/style.css">
   <title>My Foods</title>
 </head>
 
@@ -11,10 +12,10 @@
   <%- include("../partials/_navbar.ejs") %>
   <h1>Welcome to my Pantry</h1>
   <% if (pantry.length != 0) { %>
-  <ul>
+  <ul class="list">
     <% pantry.forEach((food)=> { %>
     <a href="/users/<%= user._id %>/foods/<%= food._id %>">
-      <li><%= food.name %>, quantity: <%= food.quantity%> <%= food.unit %></li>
+      <li class="list-item"><%= food.name %>, quantity: <%= food.quantity%> <%= food.unit %></li>
     </a>
 
     <%}) %>
@@ -23,7 +24,7 @@
   <p>There are no items in the Pantry</p>
   <% } %>
 
-  <a href="/users/<%= user._id %>/foods/new">Add a new food to your pantry</a>
+  <a class="btn" href="/users/<%= user._id %>/foods/new">Add a new food to your pantry</a>
 
 </body>
 

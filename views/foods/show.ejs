@@ -4,17 +4,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/style.css">
   <title>My Food</title>
 </head>
 
 <body>
   <%- include("../partials/_navbar.ejs"); %>
-  <h1><%= food.name %></h1>
-  <p>Quantity: <%= food.quantity %> <%= food.unit %></p>
-  <a href="/users/<%= user._id %>/foods/<%= food._id %>/edit">Edit this Food</a>
-  <form action="/users/<%= user._id %>/foods/<%= food._id %>?_method=DELETE" method=POST>
-    <button type="submit">Delete this food</button>
-  </form>
+  <div class="show-container">
+    <h1><%= food.name %></h1>
+    <div class="food">
+      Quantity: <%= food.quantity %> <%= food.unit %>
+    </div>
+    <div class="button-container">
+      <a class="btn" href="/users/<%= user._id %>/foods/<%= food._id %>/edit">Edit this Food</a>
+      <form action="/users/<%= user._id %>/foods/<%= food._id %>?_method=DELETE" method=POST>
+        <button type="submit">Delete this food</button>
+      </form>
+    </div>
+  </div>
 </body>
 
 </html>
