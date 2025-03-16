@@ -12,9 +12,9 @@
   <%- include("../partials/_navbar.ejs"); %>
   <h1><%= user.username %></h1>
   <p>Pantry Items</p>
-  <ul class="list">
+  <ul>
     <% pantry.forEach((food) => { %>
-    <li class="list-item"><%= food.name %> <%= food.quantity %> <%= food.unit %></li>
+    <li><%= food.name %> <%= food.quantity %> <%= food.unit %></li>
     <% }) %>
   </ul>
 </body>

@@ -3,6 +3,8 @@ const router = express.Router();
 
 const User = require("../models/user.js");
 
+//base route - displays all the items in the
+//user's pantry
 router.get("/", async (req, res) => {
   try {
     const currentUser = await User.findById(req.session.user._id);
@@ -16,6 +18,7 @@ router.get("/", async (req, res) => {
 });
 
 //POST /user/:userId/foods/new
+//add a new food
 router.post("/", async (req, res) => {
   try {
     const currentUser = await User.findById(req.session.user._id);
@@ -28,11 +31,15 @@ router.post("/", async (req, res) => {
   }
 });
 
+//show to page with a form for the user
+//to enter a new food
 router.get("/new", (req, res) => {
   res.status(200).render("foods/new.ejs");
 });
 
 //SHOW route /users/:userId/foods/:itemId
+//show the individual item for the user
+//to be able to edit or delete
 router.get("/:foodId", async (req, res) => {
   try {
     //look up user
@@ -47,6 +54,7 @@ router.get("/:foodId", async (req, res) => {
   }
 });
 
+//when the user pushes the delete button
 router.delete("/:foodId", async (req, res) => {
   try {
     const currentUser = await User.findById(req.session.user._id);
@@ -59,6 +67,7 @@ router.delete("/:foodId", async (req, res) => {
   }
 });
 
+//render the edit page - with the form prefilled in
 router.get("/:foodId/edit", async (req, res) => {
   try {
     const currentUser = await User.findById(req.session.user._id);
@@ -72,6 +81,7 @@ router.get("/:foodId/edit", async (req, res) => {
   }
 });
 
+//what happens after the user hits the edit button
 router.put("/:foodId", async (req, res) => {
   try {
     const currentUser = await User.findById(req.session.user._id);

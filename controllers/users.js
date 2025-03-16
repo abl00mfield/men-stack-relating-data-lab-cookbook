@@ -3,6 +3,8 @@ const router = express.Router();
 
 const User = require("../models/user.js");
 
+//index route - show all users that have
+//accounts
 router.get("/", async (req, res) => {
   try {
     const users = await User.find();
@@ -15,6 +17,7 @@ router.get("/", async (req, res) => {
   }
 });
 
+//show an individual user's pantry items
 router.get("/:userId", async (req, res) => {
   try {
     const user = await User.findById(req.params.userId);
